@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -64,9 +63,33 @@ const Investigation = () => {
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[calc(100vh-200px)]">
-          {/* Alert Details */}
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 gap-6 h-[calc(100vh-200px)]">
+          {/* Video Demo Section - Top and Bigger */}
+          <div className="h-2/3">
+            <Card className="bg-slate-800/50 border-slate-600 backdrop-blur-sm h-full">
+              <div className="p-6 h-full flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-lg font-semibold text-white">Product Demo</h2>
+                  <div className="flex items-center space-x-2">
+                    <Video className="h-5 w-5 text-emerald-400" />
+                    <span className="text-sm text-emerald-400">Demo Ready</span>
+                  </div>
+                </div>
+
+                {/* Video Placeholder */}
+                <div className="flex-1 bg-slate-900 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <Video className="h-16 w-16 text-slate-500 mx-auto mb-4" />
+                    <h3 className="text-xl font-medium text-white mb-2">Video Demo Placeholder</h3>
+                    <p className="text-gray-400">Demo video will be embedded here</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Alert Details - Bottom */}
+          <div className="h-1/3">
             <Card className="bg-slate-800/50 border-slate-600 backdrop-blur-sm h-full">
               <div className="p-6">
                 <h2 className="text-lg font-semibold text-white mb-4">Investigation Details</h2>
@@ -96,7 +119,7 @@ const Investigation = () => {
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="grid grid-cols-2 gap-3">
                   <div className="bg-slate-700/50 p-3 rounded">
                     <h4 className="text-emerald-300 font-medium text-sm mb-1">Analysis Status</h4>
                     <p className="text-gray-300 text-xs">AI monitoring active - Tracking marine activity</p>
@@ -105,30 +128,6 @@ const Investigation = () => {
                   <div className="bg-slate-700/50 p-3 rounded">
                     <h4 className="text-emerald-300 font-medium text-sm mb-1">Evidence Collected</h4>
                     <p className="text-gray-300 text-xs">Video footage, GPS coordinates, vessel identification</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          {/* Video Demo Section */}
-          <div className="lg:col-span-2">
-            <Card className="bg-slate-800/50 border-slate-600 backdrop-blur-sm h-full">
-              <div className="p-6 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-semibold text-white">Product Demo</h2>
-                  <div className="flex items-center space-x-2">
-                    <Video className="h-5 w-5 text-emerald-400" />
-                    <span className="text-sm text-emerald-400">Demo Ready</span>
-                  </div>
-                </div>
-
-                {/* Video Placeholder */}
-                <div className="flex-1 bg-slate-900 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <Video className="h-16 w-16 text-slate-500 mx-auto mb-4" />
-                    <h3 className="text-xl font-medium text-white mb-2">Video Demo Placeholder</h3>
-                    <p className="text-gray-400">Demo video will be embedded here</p>
                   </div>
                 </div>
               </div>
