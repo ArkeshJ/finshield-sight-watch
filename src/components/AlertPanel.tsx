@@ -2,6 +2,7 @@
 import { AlertTriangle, Clock, MapPin, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 interface Alert {
   id: number;
@@ -19,6 +20,8 @@ interface AlertPanelProps {
 }
 
 export const AlertPanel = ({ alerts, onAlertSelect, selectedAlert }: AlertPanelProps) => {
+  const navigate = useNavigate();
+
   const getSeverityColor = (severity: string) => {
     switch (severity) {
       case 'high': return 'border-red-500 bg-red-500/10';
@@ -37,8 +40,12 @@ export const AlertPanel = ({ alerts, onAlertSelect, selectedAlert }: AlertPanelP
     }
   };
 
+  const handleInvestigate = (alert: Alert) => {
+    navigate("/investigation", { state: { alert } });
+  };
+
   return (
-    <Card className="bg-slate-800/50 border-slate-600 backdrop-blur-sm">
+    <Card className="bg-slate-800/50 border-slate-600 backdrop-blur-sm h-full">
       <div className="p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-white">Active Alerts</h2>
@@ -88,7 +95,7 @@ export const AlertPanel = ({ alerts, onAlertSelect, selectedAlert }: AlertPanelP
                 className="w-full mt-3 bg-emerald-600/20 border-emerald-500 text-emerald-300 hover:bg-emerald-600/30"
                 onClick={(e) => {
                   e.stopPropagation();
-                  onAlertSelect(alert);
+                  handleInvestigate(alert);
                 }}
               >
                 <Eye className="h-3 w-3 mr-2" />
