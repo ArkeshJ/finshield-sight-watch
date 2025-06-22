@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { VideoTracker } from "@/components/VideoTracker";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, AlertTriangle, MapPin, Clock } from "lucide-react";
+import { ArrowLeft, AlertTriangle, MapPin, Clock, Video } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 
@@ -111,9 +111,28 @@ const Investigation = () => {
             </Card>
           </div>
 
-          {/* Video Tracker */}
+          {/* Video Demo Section */}
           <div className="lg:col-span-2">
-            <VideoTracker selectedAlert={alert} />
+            <Card className="bg-slate-800/50 border-slate-600 backdrop-blur-sm h-full">
+              <div className="p-6 h-full flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-lg font-semibold text-white">Product Demo</h2>
+                  <div className="flex items-center space-x-2">
+                    <Video className="h-5 w-5 text-emerald-400" />
+                    <span className="text-sm text-emerald-400">Demo Ready</span>
+                  </div>
+                </div>
+
+                {/* Video Placeholder */}
+                <div className="flex-1 bg-slate-900 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <Video className="h-16 w-16 text-slate-500 mx-auto mb-4" />
+                    <h3 className="text-xl font-medium text-white mb-2">Video Demo Placeholder</h3>
+                    <p className="text-gray-400">Demo video will be embedded here</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </div>
